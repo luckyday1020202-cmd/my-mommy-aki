@@ -1,0 +1,216 @@
+/* 全局基礎設定 */
+* { box-sizing: border-box; margin: 0; padding: 0; font-family: "Segoe UI", Roboto, Helvetica, Arial, sans-serif; }
+
+body {
+    height: 100vh;
+    background-color: #0b0c10;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    color: #fff;
+    position: relative;
+}
+
+/* --- 初始：珠寶店場景 --- */
+.jewelry-store-bg {
+    position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -2;
+    background: radial-gradient(circle at 50% 20%, #1a2130 0%, #08090c 85%);
+}
+.store-spotlight {
+    position: absolute; top: -40px; left: 50%; transform: translateX(-50%);
+    width: 600px; height: 350px;
+    background: radial-gradient(ellipse at top, rgba(255, 255, 255, 0.06) 0%, rgba(0,0,0,0) 75%);
+    pointer-events: none;
+}
+
+/* --- 最終：高質感純 CSS 藝術日落公園 --- */
+.park-background {
+    position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -2; overflow: hidden;
+}
+.hidden-park { display: none !important; }
+
+/* 絕美的夕陽漸層天空 */
+.art-sky {
+    position: absolute; width: 100%; height: 100%;
+    background: linear-gradient(to bottom, #2c1a45 0%, #87304f 25%, #c84949 50%, #ee7b40 75%, #f6c05c 100%);
+}
+
+/* 發光的夕陽 */
+.art-sun {
+    position: absolute; top: 35%; left: 50%; transform: translate(-50%, -50%);
+    width: 250px; height: 250px; border-radius: 50%;
+    background: #ffebb0;
+    box-shadow: 0 0 120px #f6c05c, 0 0 200px #ee7b40, 0 0 350px #c84949;
+    opacity: 0.95;
+}
+
+/* 層次分明的山丘/草地剪影 */
+.hill { position: absolute; border-radius: 50%; }
+.hill-bg1 {
+    width: 150vw; height: 60vh; bottom: -30vh; left: -25vw;
+    background: #471932; /* 最遠的山丘 */
+}
+.hill-bg2 {
+    width: 130vw; height: 50vh; bottom: -20vh; right: -20vw;
+    background: #2b0c1e; /* 中景山丘 */
+}
+.hill-fg {
+    width: 160vw; height: 40vh; bottom: -15vh; left: -30vw;
+    background: #11040d; /* 最前方的深色地面 */
+}
+
+/* CSS 幾何繪製的松樹剪影 (取代 Emoji) */
+.css-tree { position: absolute; bottom: 15vh; z-index: 1; }
+/* 樹冠 */
+.css-tree::before {
+    content: ''; position: absolute; bottom: 20px; left: -30px;
+    width: 60px; height: 150px; background: #11040d;
+    clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+}
+/* 樹幹 */
+.css-tree::after {
+    content: ''; position: absolute; bottom: 0; left: -5px;
+    width: 10px; height: 30px; background: #11040d;
+}
+.tree-1 { left: 10%; transform: scale(1.2); }
+.tree-2 { left: 18%; bottom: 18vh; transform: scale(0.8); }
+.tree-3 { right: 15%; bottom: 12vh; transform: scale(1.5); }
+.tree-4 { right: 8%; bottom: 20vh; transform: scale(0.9); }
+
+/* --- 玻璃展示櫃外觀 --- */
+.glass-counter {
+    width: 90%; max-width: 520px;
+    background: rgba(255, 255, 255, 0.025);
+    backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+    border-radius: 30px; padding: 35px 20px;
+    box-shadow: 0 40px 80px rgba(0, 0, 0, 0.6), inset 0 1px 0 rgba(255, 255, 255, 0.15);
+    position: relative; z-index: 1;
+}
+
+.counter-title {
+    text-align: center; font-size: 1.15rem; font-weight: 500; letter-spacing: 3px;
+    color: #f3e5ab; margin-bottom: 28px; text-shadow: 0 2px 10px rgba(243, 229, 171, 0.4);
+}
+.boxes-container { display: flex; justify-content: space-between; gap: 14px; }
+.jewelry-item {
+    flex: 1; background: rgba(255, 255, 255, 0.04); border-radius: 20px; padding: 20px 10px;
+    text-align: center; cursor: pointer; transition: all 0.35s ease; box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+}
+.jewelry-item:hover { transform: translateY(-6px); box-shadow: 0 20px 35px rgba(0,0,0,0.5); }
+.custom-box {
+    width: 60px; height: 50px; background: rgba(20, 20, 25, 0.8); margin: 0 auto 15px auto;
+    border-radius: 12px; display: flex; justify-content: center; align-items: center; position: relative;
+}
+
+.pure-ring { position: relative; width: 32px; height: 32px; display: flex; justify-content: center; align-items: center; }
+.ring-band { position: absolute; width: 26px; height: 26px; border: 3px solid #d4af37; border-radius: 50%; bottom: 0; box-shadow: 0 2px 6px rgba(0,0,0,0.4); }
+.ring-gem { position: absolute; width: 14px; height: 14px; transform: rotate(45deg); top: 2px; border-radius: 2px; box-shadow: 0 0 12px currentColor; }
+.red-gem { background-color: #ff0033; color: #ff0033; }
+.blue-gem { background-color: #0066ff; color: #0066ff; }
+.pink-gem { background-color: #ff3399; color: #ff3399; }
+
+.folded-paper {
+    background: #fbf9f1; color: #111; padding: 8px 6px; border-radius: 8px; font-size: 0.82rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); display: flex; flex-direction: column; gap: 3px;
+    transform: rotate(-1deg); transition: transform 0.2s ease;
+}
+.jewelry-item:hover .folded-paper { transform: rotate(0deg) scale(1.04); }
+.paper-days { font-weight: bold; }
+.red-text { color: #ff0033; font-weight: 700; }
+.blue-text { color: #0066ff; font-weight: 700; }
+.pink-text { color: #ff3399; font-weight: 700; }
+
+/* --- 互動彈窗 --- */
+.modal-overlay {
+    position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: 10;
+    background: rgba(0, 0, 0, 0.7); backdrop-filter: blur(10px);
+    display: flex; justify-content: center; align-items: center;
+}
+.hidden { display: none !important; }
+.smooth-modal {
+    background: rgba(22, 26, 35, 0.9); border-radius: 28px; padding: 35px 25px; width: 85%; max-width: 320px;
+    text-align: center; position: relative; box-shadow: 0 30px 60px rgba(0, 0, 0, 0.7);
+    animation: modalPopupSmooth 0.4s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}
+@keyframes modalPopupSmooth { 0% { transform: scale(0.8) translateY(20px); opacity: 0; } 100% { transform: scale(1) translateY(0); opacity: 1; } }
+.modal-gem-icon { font-size: 2.2rem; margin-bottom: 10px; }
+.smooth-modal h3 { margin-bottom: 8px; font-size: 1.25rem; }
+.smooth-modal p { color: #b2bec3; margin-bottom: 24px; font-size: 0.98rem; }
+.close-x { position: absolute; top: 14px; left: 16px; background: none; border: none; font-size: 1.5rem; color: #888; cursor: pointer; }
+.promise-btn {
+    width: 100%; background: linear-gradient(135deg, #ff3366, #cc0033); border: none; color: white;
+    padding: 14px; border-radius: 16px; font-size: 1rem; font-weight: 600; cursor: pointer;
+}
+
+/* --- 戒指飛出動畫 --- */
+.hidden-ring { display: none; }
+.flying-ring { position: absolute; z-index: 20; pointer-events: none; }
+.flying-ring-inner { width: 50px; height: 50px; }
+.flying-ring-inner .ring-band { width: 40px; height: 40px; border-width: 4px; }
+.flying-ring-inner .ring-gem { width: 20px; height: 20px; top: 2px; }
+@keyframes ringFlyAnimation {
+    0% { transform: scale(0.2) translateY(50px); opacity: 0; }
+    30% { transform: scale(1.6) translateY(0); opacity: 1; }
+    50% { transform: scale(1) translate(0, 0); opacity: 1; }
+    100% { transform: scale(0.3) translate(-150px, 190px); opacity: 0; }
+}
+.animate-ring { display: block; animation: ringFlyAnimation 1.8s cubic-bezier(0.25, 1, 0.5, 1) forwards; }
+
+/* --- 信封彈出 (中間彈出) --- */
+.hidden-envelope { display: none !important; }
+.envelope-container {
+    position: absolute; width: 260px; height: 170px; background: #f4eee1; border-radius: 10px;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.6); z-index: 50; display: flex; justify-content: center; align-items: center;
+    cursor: pointer; transform: scale(0);
+}
+@keyframes popFromCenter {
+    0% { transform: scale(0.3) translateY(40px); opacity: 0; }
+    70% { transform: scale(1.08) translateY(-10px); opacity: 1; }
+    100% { transform: scale(1) translateY(0); opacity: 1; }
+}
+.animate-envelope { display: flex !important; animation: popFromCenter 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) forwards; }
+.envelope-body { position: absolute; width: 100%; height: 100%; border: 2px solid #dcd6c9; border-radius: 10px; }
+.envelope-flap { position: absolute; top: 0; border-left: 130px solid transparent; border-right: 130px solid transparent; border-top: 90px solid #e6dec9; }
+.envelope-seal { position: absolute; font-size: 1.8rem; z-index: 52; top: 35px; }
+.envelope-text { position: absolute; z-index: 53; bottom: 30px; text-align: center; color: #333; }
+.env-name { font-size: 1.2rem; font-weight: bold; color: #b30024; }
+
+/* --- 展開後的可滑動長信件 --- */
+.hidden-letter { display: none !important; }
+.letter-note {
+    position: absolute; width: 320px; height: 450px; background: #fffcf5;
+    border-radius: 12px; z-index: 60; box-shadow: 0 20px 50px rgba(0,0,0,0.6);
+    padding: 25px 15px 25px 25px; /* 右側留邊給捲軸 */
+    color: #333; opacity: 0; transform: scale(0.5);
+    animation: letterExpand 0.6s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+}
+@keyframes letterExpand { 100% { opacity: 1; transform: scale(1); } }
+
+/* 內部捲軸區域設定 */
+.note-scroll-area {
+    width: 100%; height: 100%; overflow-y: auto; padding-right: 15px;
+}
+
+/* 網頁自訂捲軸美化 (營造信紙質感) */
+.note-scroll-area::-webkit-scrollbar { width: 6px; }
+.note-scroll-area::-webkit-scrollbar-track { background: #f0e9dc; border-radius: 10px; }
+.note-scroll-area::-webkit-scrollbar-thumb { background: #c2a882; border-radius: 10px; }
+.note-scroll-area::-webkit-scrollbar-thumb:hover { background: #a88d66; }
+
+.note-scroll-area h4 { font-size: 1.4rem; margin-bottom: 20px; color: #b30024; text-align: center; border-bottom: 1px solid #eaddcf; padding-bottom: 10px; }
+.note-scroll-area p { font-size: 1rem; line-height: 1.8; margin-bottom: 18px; text-align: justify; letter-spacing: 0.5px; }
+
+.finish-btn {
+    width: 100%; background: #d63031; border: none; color: white;
+    padding: 14px; border-radius: 12px; font-size: 1rem; cursor: pointer;
+    margin-top: 10px; margin-bottom: 10px; transition: background 0.2s;
+}
+.finish-btn:hover { background: #b23a48; }
+
+/* --- 漸黑遮罩 --- */
+.fade-overlay {
+    position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: #000;
+    opacity: 0; pointer-events: none; z-index: 100; transition: opacity 2s ease-in-out;
+}
+.fade-to-black { opacity: 1; pointer-events: auto; }

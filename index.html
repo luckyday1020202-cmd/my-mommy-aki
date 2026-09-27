@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>我們的紀念日 - 完美藝術日落</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- 背景音樂 -->
+    <audio id="bgMusic" loop>
+    <source src="music.mp4" type="audio/mpeg">
+        您的瀏覽器不支援音樂播放。
+    </audio>
+
+    <!-- 初始的珠寶店背景 -->
+    <div id="storeBg" class="jewelry-store-bg">
+        <div class="store-spotlight"></div>
+    </div>
+
+    <!-- 最終的高質感藝術日落公園背景 (純CSS剪影藝術) -->
+    <div id="parkBg" class="park-background hidden-park">
+        <div class="art-sky"></div>
+        <div class="art-sun"></div>
+        
+        <!-- 遠中近層次的山丘剪影，營造空間深度 -->
+        <div class="hill hill-bg1"></div>
+        <div class="hill hill-bg2"></div>
+        <div class="hill hill-fg"></div>
+
+        <!-- 純CSS繪製的樹木剪影，取代原本的文字貼圖 -->
+        <div class="css-tree tree-1"></div>
+        <div class="css-tree tree-2"></div>
+        <div class="css-tree tree-3"></div>
+        <div class="css-tree tree-4"></div>
+    </div>
+
+    <!-- 玻璃展示櫃主容器 -->
+    <div id="mainCounter" class="glass-counter">
+        <div class="counter-title">✨ แท่นวางโชว์เครื่องประดับสั่งทำพิเศษระดับไฮเอนด์ ✨</div>
+
+        <!-- 櫃台內的三個珠寶盒 -->
+        <div class="boxes-container">
+            <div class="jewelry-item" data-color="สีแดง">
+                <div class="custom-box">
+                    <div class="pure-ring">
+                        <div class="ring-band"></div>
+                        <div class="ring-gem red-gem"></div>
+                    </div>
+                </div>
+                <div class="folded-paper">
+                    <span class="paper-days">100 day</span>
+                    <span class="paper-color red-text">สีแดง</span>
+                </div>
+            </div>
+
+            <div class="jewelry-item" data-color="สีฟ้า">
+                <div class="custom-box">
+                    <div class="pure-ring">
+                        <div class="ring-band"></div>
+                        <div class="ring-gem blue-gem"></div>
+                    </div>
+                </div>
+                <div class="folded-paper">
+                    <span class="paper-days">200 day</span>
+                    <span class="paper-color blue-text">สีฟ้า</span>
+                </div>
+            </div>
+
+            <div class="jewelry-item" data-color="สีชมพู">
+                <div class="custom-box">
+                    <div class="pure-ring">
+                        <div class="ring-band"></div>
+                        <div class="ring-gem pink-gem"></div>
+                    </div>
+                </div>
+                <div class="folded-paper">
+                    <span class="paper-days">ตลอดไป</span>
+                    <span class="paper-color pink-text">สีชมพู</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 飛出動畫的戒指 -->
+    <div id="flyingRing" class="flying-ring hidden-ring">
+        <div class="pure-ring flying-ring-inner">
+            <div class="ring-band"></div>
+            <div id="flyingGem" class="ring-gem"></div>
+        </div>
+    </div>
+
+    <!-- 彈出確認視窗 -->
+    <div id="confirmModal" class="modal-overlay hidden">
+        <div class="smooth-modal">
+            <button id="closeModal" class="close-x">×</button>
+            <div class="modal-gem-icon">💖</div>
+            <h3>คำมั่นสัญญาสุดพิเศษ</h3>
+            <p>คุณต้องสัญญาว่าจะอยู่กับฉันนานเท่านี้！</p>
+            <button id="promiseBtn" class="promise-btn">รับประกัน</button>
+        </div>
+    </div>
+
+    <!-- 浪漫信封 (畫面中間彈出) -->
+    <div id="flyingEnvelope" class="envelope-container hidden-envelope">
+        <div class="envelope-flap"></div>
+        <div class="envelope-body"></div>
+        <div class="envelope-seal">💌</div>
+        <div class="envelope-text">
+            <span class="env-to">ผู้รับ：</span>
+            <span class="env-name">อากิ</span>
+        </div>
+    </div>
+
+    <!-- 展開後的可滑動長信件 -->
+    <div id="letterNote" class="letter-note hidden-letter">
+        <div class="note-scroll-area">
+            <h4>baisheng to aki</h4>
+            <p>นี่คือเรื่องราวของเรา ตั้งแต่การพบกันครั้งแรกจนถึงปัจจุบัน</p>
+            <p>คุณจำตอนที่เราเจอกันครั้งแรกได้ไหม? ทุกอย่างดูบริสุทธิ์มากในตอนนั้น ฉันเก็บรักษาทุกช่วงเวลาตลอด 100 วันที่ผ่านมาไว้ในใจอย่างดี</p>
+            <p>เส้นทางข้างหน้าอาจยาวไกล และเราอาจพบเจอกับสิ่งที่ไม่คาดคิดมากมาย แต่ฉันหวังว่าในทุกๆ พระอาทิตย์ตกดินในอนาคต คุณจะอยู่เคียงข้างฉันเพื่อชมมันด้วยกัน</p>
+            <p>คุณเพิ่งคลิก "รับประกัน" และไม่มีทางย้อนกลับได้แล้ว เพราะแหวนวงนี้มีความหมายมากกว่าแค่เวลา มันแสดงถึงความตั้งใจของฉันที่จะเดินเคียงข้างคุณไปสู่ ​​"ชั่วนิรันดร์"</p>
+            <p>ไม่ว่าวันข้างหน้าจะเป็นวันธรรมดาหรือเต็มไปด้วยความท้าทาย ตราบใดที่เรายังจับมือกัน เราก็จะผ่านพ้นมันไปได้แน่นอน</p>
+            <p>ขอบคุณที่เข้ามาในชีวิตของฉัน ฉันรักคุณทุกวันนับจากนี้ไป สำหรับมัมมี๊อากิของฉัน❤️</p>
+            
+            <button id="finishBtn" class="finish-btn">完成了</button>
+        </div>
+    </div>
+
+    <!-- 全螢幕漸黑遮罩 -->
+    <div id="fadeOverlay" class="fade-overlay"></div>
+
+    <script src="script.js"></script>
+</body>
+</html>
